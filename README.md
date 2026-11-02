@@ -110,7 +110,7 @@ flowchart LR
 | **Payments** | Payment method by order size |
 | **Geography** | Top 10 cities |
 
-📄 Full queries: [`01_sql/apple_india_analysis.sql`](01_sql/apple_india_analysis.sql) · Result screenshots: [`01_sql/results/`](01_sql/results/)
+📄 Full queries: [`01_sql/apple_india_analysis.sql`](01_sql/apple_india_analysis.sql) · Result screenshots: [`01_sql/01_sql_results/`](01_sql/01_sql_results/)
 
 ---
 
@@ -124,7 +124,7 @@ flowchart LR
 | **4. Festivals & Gifting** | Festival uplift, daily revenue with festive days highlighted, occasion × recipient heatmap, gift vs self-purchase |
 | **5. Customers & RFM** | RFM bubble map, segment summary table, cumulative return curve, payment heatmap, city treemap |
 
-🔗 [**Open the live dashboard**](https://app.powerbi.com/view?r=eyJrIjoiMWVkYmE5OWQtMmM0My00ODJkLTg3YTAtMzY2ZGQxNTExNDcyIiwidCI6ImQxZjE0MzQ4LWYxYjUtNGEwOS1hYzk5LTdlYmYyMTNjYmM4MSIsImMiOjEwfQ%3D%3D) (no sign-in needed) · 📄 [Download the dashboard as PDF](reports/Apple_India_Dashboard.pdf) · 📁 [`.pbix` file](03_powerbi/apple_india_dashboard.pbix)
+🔗 [**Open the live dashboard**](https://app.powerbi.com/view?r=eyJrIjoiMWVkYmE5OWQtMmM0My00ODJkLTg3YTAtMzY2ZGQxNTExNDcyIiwidCI6ImQxZjE0MzQ4LWYxYjUtNGEwOS1hYzk5LTdlYmYyMTNjYmM4MSIsImMiOjEwfQ%3D%3D) (no sign-in needed) · 📄 [Download the dashboard as PDF](reports/powerbi_appleindia_dashboard.pdf) · 📁 [`.pbix` file](03_powerbi/apple_india_dashboard_final.pbix)
 
 <details>
 <summary><b>📸 Click to view all dashboard pages</b></summary>
@@ -174,16 +174,16 @@ flowchart LR
 ├── README.md
 ├── 01_sql/
 │   ├── apple_india_analysis.sql        # setup + 18 analysis queries
-│   └── results/                        # screenshots of each query result
+│   └── 01_sql_results/                 # screenshots of each query result
 ├── 02_python/
-│   └── rfm_analysis.ipynb              # RFM, segments, churn, order gaps
+│   └── RFM_ANALYSIS.ipynb              # RFM, segments, churn, order gaps
 ├── 03_powerbi/
-│   └── apple_india_dashboard.pbix      # 5-page dashboard
+│   └── apple_india_dashboard_final.pbix  # 5-page dashboard
 ├── data/
 │   └── customer_segments.csv           # Python output (full data on Kaggle)
 ├── images/                             # Python charts + dashboard screenshots
 └── reports/
-    ├── Apple_India_Dashboard.pdf
+    ├── powerbi_appleindia_dashboard.pdf
     └── Insights_and_Recommendations.pdf
 ```
 
@@ -193,8 +193,8 @@ flowchart LR
 
 1. **Download the data** from [Kaggle](https://www.kaggle.com/datasets/vedantgangrade/apple-india-gifting-and-sales-transactions-2024-26).
 2. **PostgreSQL:** create a database (e.g. `appleindia_clean`), run the setup part of `01_sql/apple_india_analysis.sql`, import the CSV into `raw.apple_sales` (pgAdmin → Import/Export, CSV, UTF-8, header on), then build `analytics.sales` and run the analysis queries.
-3. **Python:** open `02_python/rfm_analysis.ipynb`, set your database password in the connection cell, then run all cells. This creates `analytics.customer_segments` and `analytics.order_gaps`.
-4. **Power BI:** open `03_powerbi/apple_india_dashboard.pbix` → **Transform data → Data source settings** → point it to your PostgreSQL database → **Refresh**.
+3. **Python:** open `02_python/RFM_ANALYSIS.ipynb`, set your database password in the connection cell, then run all cells. This creates `analytics.customer_segments` and `analytics.order_gaps`.
+4. **Power BI:** open `03_powerbi/apple_india_dashboard_final.pbix` → **Transform data → Data source settings** → point it to your PostgreSQL database → **Refresh**.
 
 **Requirements:** PostgreSQL 14+, Python 3.10+ (`pandas`, `numpy`, `matplotlib`, `sqlalchemy`, `psycopg2-binary`), Power BI Desktop.
 
